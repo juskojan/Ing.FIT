@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<!-- Example from url=(0060)http://www.chartjs.org/samples/latest/charts/line/basic.html -->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Meteostation</title>
+        <script async="" src="./chartjs/analytics.js.download"></script>
+        <script src="./chartjs/Chart.bundle.js.download"></script>
+        <style type="text/css">
+            @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+        </style>
+        <script src="./chartjs/utils.js.download"></script>
+        <style>
+            canvas{
+                -moz-user-select: none;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js'></script>
+    </head>
+
+    <body>
+        <div style="width:50%;"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+            <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                    
+                </div>
+            </div>
+            <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                    
+                </div>
+            </div>
+        </div>
+        <canvas id="canvas" style="display: block; width: 1428px; height: 714px;" width="1428" height="714" class="chartjs-render-monitor"></canvas>
+        </div>
+        <br>
+
+        <div style="width:50%;"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+            <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                    
+                </div>
+            </div>
+            <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                    
+                </div>
+            </div>
+        </div>
+        <canvas id="canvas2" style="display: block; width: 1428px; height: 714px;" width="1428" height="714" class="chartjs-render-monitor"></canvas>
+        </div>
+
+        <script type='text/javascript'>    
+          var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1-Ifk9Z4LQwWtgfD2aD1IQuTbBEvu1Pcct_apMkaDO2A/pubhtml';
+          var publicCurrentTempUrl = 'https://docs.google.com/spreadsheets/d/19WtwDIqvMfkJQ_QqwpdPmhotNO-o39hvWzLEjhGVDpI/pubhtml';
+
+          function init() {
+            Tabletop.init( { key: publicSpreadsheetUrl,
+                             callback: showInfo,
+                             simpleSheet: true } )
+          }
+
+          function initCurrentTemp() {
+            Tabletop.init( { key: publicCurrentTempUrl,
+                             callback: showCurrentTemp,
+                             simpleSheet: true } )
+          }
+
+          var current_timestamp;
+          var current_temp;
+          var current_humid;
+
+          function showCurrentTemp(data, tabletop) {
+            console.log(data);
+            current_timestamp = data[0].timestamp;
+            current_temp = data[0].temperature;
+            current_humid = data[0].humidity;
+          }
+
+          var timestamps = [];
+          var temps = []; 
+          var hums = [];
+
+          function showInfo(data, tabletop) {
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+              timestamps.push(data[i].timestamp);
+              temps.push(data[i].temperature);
+              hums.push(data[i].humidity);
+            }
+          }
+
+          window.addEventListener('DOMContentLoaded', init)
+          window.addEventListener('DOMContentLoaded', initCurrentTemp)
+        
+            //console.log(timestamps)
+            var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var config = {
+                type: 'line',
+                data: {
+                    labels: timestamps,
+                    datasets: [{
+                        label: "Temperature",
+                        backgroundColor: window.chartColors.red,
+                        borderColor: window.chartColors.red,
+                        data: temps,
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title:{
+                        display:true,
+                        text:'Meteostation'
+                    },
+                    
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                stepSize: 5,                                
+                                suggestedMax: 45,
+                                suggestedMin: -19
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Temperature [°C]'
+                            }
+                        }]
+                    }
+                }
+            };          
+
+            var config2 = {
+                type: 'line',
+                data: {
+                    labels: timestamps,
+                    datasets: [{
+                        label: "Humidity",
+                        fill: false,
+                        backgroundColor: window.chartColors.blue,
+                        borderColor: window.chartColors.blue,
+                        data: hums,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    title:{
+                        display:false,
+                        text:'Meteostation'
+                    },
+                    
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Time'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            ticks: {
+                                stepSize: 5,                                
+                                suggestedMax: 100,
+                                suggestedMin: 0
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Humidity [%]'
+                            }
+                        }]
+                    }
+                }
+            };          
+
+            window.onload = function() {
+                var ctx = document.getElementById("canvas").getContext("2d");
+                window.myLine = new Chart(ctx, config);
+                var ctx = document.getElementById("canvas2").getContext("2d");
+                window.myLine2 = new Chart(ctx, config2);
+            };          
+
+            
+            setInterval(function(){
+                window.myLine.update();
+                window.myLine2.update();
+            },300);
+
+            setInterval(function(){
+                initCurrentTemp();
+                config.data.labels.splice(0, 1); // remove the label first
+                config.data.labels.push(current_timestamp); // add new label at end
+
+                config2.data.labels.splice(0, 1); // remove the label first
+                config2.data.labels.push(current_timestamp); // add new label at end
+
+                config.data.datasets.forEach(function(dataset, datasetIndex) {
+                    if(datasetIndex == 0){
+                        dataset.data.push(current_temp); // add new data at end
+                        dataset.data.splice(0, 1); // remove first data point
+                    }               
+                });
+
+                config2.data.datasets.forEach(function(dataset, datasetIndex) {
+                    if(datasetIndex == 0){
+                        dataset.data.push(current_humid); // add new data at end
+                        dataset.data.splice(0, 1); // remove first data point
+                    }             
+                });
+
+                window.myLine.update();
+                window.myLine2.update();
+            },5000);      
+        
+        </script>
+    </body>
+</html>
