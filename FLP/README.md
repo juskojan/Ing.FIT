@@ -1,10 +1,10 @@
-Funkcionální a logické programování 2016L
+# Funkcionální a logické programování 2016L
 
-Fakulta informačních technologií
-Vysoké Učení Technické
+### Fakulta informačních technologií
+### Vysoké Učení Technické
 
-Dokumentace k funkcionálnímu projektu
-varianta: bkg-2-cnf
+## Dokumentace k funkcionálnímu projektu
+- varianta: bkg-2-cnf
 
 1. Spracovanie argumentov
 	
