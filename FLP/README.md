@@ -7,8 +7,7 @@
 ## Dokumentace k funkcionálnímu projektu
 - varianta: bkg-2-cnf
 
-1. Spracovanie argumentov
-	
+1. Spracovanie argumentov	
 	Na spracovanie argumentov prikazovej riadky som pouzil kostru prebratu z laboratorneho cvicenia predmetu FLP.
 	V samostatnej knihovni obsahujucej definovany datovy typ Config ktory po uspesnom vyhodnoteni vstupnych argumentov obsahuje zdroj vstupnej gramatiky (subor/stdin) a akciu, ktora sa ziada vykonat.
 
