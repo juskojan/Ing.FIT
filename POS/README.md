@@ -1,4 +1,4 @@
-#POS (Pokročilé operační systémy)
+# POS (Pokročilé operační systémy)
 
 ### Projekt 1 8b/8b
 
