@@ -1,7 +1,8 @@
 # Funkcionální a logické programování 2016L
 
-### Fakulta informačních technologií
-### Vysoké Učení Technické
+### Fakulta informačních technologií Vysoké Učení Technické
+
+- Hodnotenie 12b/12b
 
 ## Dokumentace k funkcionálnímu projektu
 - varianta: bkg-2-cnf
