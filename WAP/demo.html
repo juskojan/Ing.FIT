@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Validátor formulářů</title>
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="inner">
+			<h1>Validátor formulářů</h1>
+			<h3>Ján Jusko</h3>
+			<h3>xjusko00@stud.fit.vutbr.cz</h3>
+			<hr>
+			<br>
+			<form id="registration">
+				<label>Meno</label>
+				<input type="text" name="name" id="name">
+
+				<label>Priezvisko <small>(required)</small></label>
+				<input type="text" name="surname" data-validation-required="on" id="surname">
+
+				<label>Vek <small>(required, regex <code>"^[0-9]+$" </code>)</small></label>
+				<input type="text" name="age" data-validation-required="on" data-validation-regex="^[0-9]+$" id="age">
+
+				<label>PSČ <small>(required, regex <code>"^[0-9]+$"</code>, minlength <code>5</code>)</small></label>
+				<input type="text" name="zip" data-validation-required="on" data-validation-regex="^[0-9]+$" data-validation-minlength="5" id="zip">
+
+				<label>Funkcia <small>(minlength <code>5</code>, maxlength <code>10</code>)</small></label>
+				<input type="text" data-validation-minlength="5" data-validation-maxlength="10" name="status" id="status">
+
+				<label>Špeciálne požiadavky <small>(maxlength <code>20</code>)</small></label>
+				<input type="text" data-validation-maxlength="20" name="needs" id="needs">
+
+				<br>
+				<input type="submit" name="dd" id="dd">
+			</form>
+
+			<h3>Read the <a href="navod.html">docs.</a></h3>
+		</div>
+	</div>
+	<script src="form-validation.js"></script>
+</body>
+
+</html>

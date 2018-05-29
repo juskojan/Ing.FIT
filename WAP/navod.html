@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <title>Návod</title>
+</head>
+<body>
+
+<div class="container">
+    <div class="inner">
+        <div class="header">
+            <h1>Validátor formulářů</h1>
+            <h3>Užívatelský manuál</h3>
+            <h3>See <a href="demo.html">demo</a></h3>
+            <hr>
+        </div>
+
+        <h4>1. Nasadenie</h4>
+        Pre využívanie funkcionality validátora umiestnite súbor <code>form-validation.js</code> do projektu a načítajte skript v stránke.
+        <br><br/>
+        <code>
+            &lt;head><br/>
+            &nbsp;&lt;script src="form-validation.js">&lt;/script&gt;<br/>
+            &lt;/head><br/>
+        </code>
+        <hr>
+
+        <h4>2. Definície pravidiel</h4>
+        Pravidlá je možné aplikovať na elementy <code>input[type="text"]</code>.
+        Pravidlá sa na jednotlivé inputy aplikujú nasledovnými užívateľskými atributmi:
+        <br><br/>
+
+        <ul>
+            <li><i>data-validation-minlength="[numeric]"</i></li>
+            <small>minimálna dĺžka reťazca</small>
+
+            <li><i>data-validation-maxlength="[numeric]"</i></li>
+            <small>maximálna dĺžka reťazca</small>
+
+            <li><i>data-validation-regex="[regex]"</i></li>
+            <small>validácia regulárnym výrazom</small>
+
+            <li><i>data-validation-required="[on]"</i></li>
+            <small>povinnosť poľa</small>
+        </ul>
+
+        Na jeden element je možné aplikovať až 4 pravidlá (každé jedno).
+        <hr>
+
+    </div>
+</div>
+
+</body>
+</html>

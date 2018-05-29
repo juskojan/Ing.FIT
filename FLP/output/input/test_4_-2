@@ -1,0 +1,17 @@
+A,B,a',b',<ab>,<aaa>,<aa>,<bbb>,<bb>
+a,b
+A
+A->a'<ab>
+<ab>->a'b'
+a'->a
+b'->b
+A->A<aaa>
+<aaa>->a'<aa>
+<aa>->a'a'
+A->a'a'
+A->b'<bbb>
+<bbb>->b'<bb>
+<bb>->b'b'
+A->AB
+B->a'<ab>
+B->A<aaa>
