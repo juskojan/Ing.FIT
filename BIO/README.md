@@ -3,6 +3,7 @@
 ## *Rozpoznání otisku prstu
 
 Implementujte biometrický systém rozpoznání otisku prstu. Není nutné použit algoritmy z přednášky jde o to vyzkoušet tvorbu biometrického rozpoznávání.
+
 Za pomoci vhodné databáze systém otestujte. DB je možné najít na internetu - u některých typů biometrik může mít vedoucí tématu k dispozici interní DB.
 Zhodnoťte jeho funkčnost v souvislosti s různými změnami algoritmů. Předpokládá se, že první pokus nebude nutně úplně úspěšný. Předpokládá se také, že vymyslíte, vyzkoušíte více přístupu k řešení a porovnáte je.
 
