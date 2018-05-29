@@ -1,0 +1,2 @@
+- Dostali jste několik souborů (https://www.fit.vutbr.cz/~imazura/vas_login.zip) které jsou šifrovány neznámou synchronní proudovou šifrou.
+- Vašim cílem je zjistit tajemství, které má formát KRY{24 znaků ASCII textu}.
