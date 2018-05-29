@@ -2,6 +2,8 @@
 
 ### Validátor formulářů
 
+- Hodnotenie 30/30b
+
 #### Popis varianty:
 Mějme libovolný formulář v HTML kódu obsahující různé vstupní prvky. Implementujte funkce v JavaScriptu, které umožní definovat následující omezení pro vstupní pole typu text:
 - Minimální délku textu
